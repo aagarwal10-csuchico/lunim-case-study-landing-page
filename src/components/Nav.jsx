@@ -2,15 +2,12 @@ export default function Nav() {
   return (
     <nav className="absolute top-0 left-0 right-0 z-30">
       <div className="mx-auto max-w-[1280px] px-6 md:px-10 py-6 flex items-center justify-between">
-        <a href="https://lunim.io" className="flex items-center gap-2 group">
-          <span
-            aria-hidden
-            className="inline-block h-3 w-3 rounded-full bg-accent transition-transform duration-300 group-hover:scale-110"
-            style={{ boxShadow: '0 0 16px rgba(0, 212, 255, 0.5)' }}
+        <a href="https://lunim.io" className="group">
+          <img
+            src="/logo.png"
+            alt="Lunim"
+            className="h-10 w-auto transition-opacity duration-300 group-hover:opacity-90"
           />
-          <span className="font-display text-lg tracking-tight text-text-primary">
-            Lunim
-          </span>
         </a>
 
         <div className="hidden md:flex items-center gap-8 text-sm text-text-secondary">
