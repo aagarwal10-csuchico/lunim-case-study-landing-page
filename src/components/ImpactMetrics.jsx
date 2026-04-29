@@ -2,17 +2,37 @@ import { useEffect, useRef, useState } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal.js'
 
 const metrics = [
-  { value: 28, suffix: '%', label: 'Faster checkout for returning users · Pizza Hut' },
-  { value: 93, suffix: '%', label: 'Task completion vs 68% originally' },
-  { value: 22, suffix: '%', label: 'Reduction in form abandonment · ToucanBox' },
-  { value: 10, suffix: 'hrs+', label: 'Saved per week through automation · WhatsApp AI' },
+  {
+    value: 28,
+    suffix: '%',
+    label: 'Faster checkout for returning users · Pizza Hut',
+    accent: '#E31837',
+  },
+  {
+    value: 93,
+    suffix: '%',
+    label: 'Task completion vs 68% originally · Pizza Hut',
+    accent: '#E31837',
+  },
+  {
+    value: 22,
+    suffix: '%',
+    label: 'Reduction in form abandonment · ToucanBox',
+    accent: '#FF6B35',
+  },
+  {
+    value: 10,
+    suffix: 'hrs+',
+    label: 'Saved per week through automation · WhatsApp AI',
+    accent: '#25D366',
+  },
 ]
 
 function easeOutCubic(t) {
   return 1 - Math.pow(1 - t, 3)
 }
 
-function CountUp({ to, suffix, active, duration = 1200 }) {
+function CountUp({ to, suffix, active, color, duration = 1200 }) {
   const [n, setN] = useState(0)
   const startedRef = useRef(false)
 
@@ -38,11 +58,16 @@ function CountUp({ to, suffix, active, duration = 1200 }) {
 
   const display = Number.isInteger(to) ? Math.round(n) : n.toFixed(1)
   return (
-    <span className="font-display font-bold text-text-primary text-5xl lg:text-6xl tracking-tight leading-none tabular-nums">
+    <span
+      className="font-display font-bold text-6xl md:text-7xl tracking-tight leading-none tabular-nums"
+      style={{ color }}
+    >
       {display}
       <span
-        className="text-accent"
-        style={{ fontSize: suffix.length > 1 ? '0.6em' : '1em', marginLeft: suffix.length > 1 ? '0.1em' : 0 }}
+        style={{
+          fontSize: suffix.length > 1 ? '0.5em' : '1em',
+          marginLeft: suffix.length > 1 ? '0.1em' : 0,
+        }}
       >
         {suffix}
       </span>
@@ -77,8 +102,13 @@ export default function ImpactMetrics() {
               }`}
               style={{ transitionDelay: `${i * 90}ms` }}
             >
-              <CountUp to={m.value} suffix={m.suffix} active={visible} />
-              <p className="mt-4 text-text-secondary text-sm md:text-[15px] leading-snug max-w-[24ch]">
+              <CountUp
+                to={m.value}
+                suffix={m.suffix}
+                active={visible}
+                color={m.accent}
+              />
+              <p className="mt-4 text-text-muted text-[13px] leading-snug max-w-[24ch]">
                 {m.label}
               </p>
             </div>
