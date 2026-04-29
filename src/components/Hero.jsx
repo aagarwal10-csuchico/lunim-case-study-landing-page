@@ -47,30 +47,23 @@ export default function Hero() {
           className="font-mono text-xs tracking-[0.24em] uppercase text-accent mb-8"
         >
           <span className="inline-block h-px w-8 bg-accent align-middle mr-3" />
-          Digital Services — Case Studies
+          DIGITAL SERVICES · CASE STUDIES
         </Reveal>
 
         <Reveal delay={120}>
           <h1 className="font-display font-bold leading-[0.95] tracking-tight text-text-primary text-[44px] sm:text-6xl md:text-7xl lg:text-[112px]">
-            Work that
+            Work that changes
             <br />
-            changes <span className="text-accent">outcomes.</span>
+            <span className="text-accent">outcomes.</span>
           </h1>
         </Reveal>
 
         <Reveal delay={260} className="mt-10 max-w-2xl">
           <p className="text-base md:text-lg text-text-secondary leading-relaxed">
-            Six projects across Human-Centric Design, AI and Web3 — measured by
-            what shipped, who used it, and what changed.
+            Six engagements. Three disciplines.
+            <br />
+            Every one measured by what actually changed.
           </p>
-        </Reveal>
-
-        <Reveal
-          delay={400}
-          className="mt-20 md:mt-32 flex items-center gap-3 text-text-muted text-xs tracking-[0.18em] uppercase"
-        >
-          <span className="inline-block h-px w-10 bg-text-muted/60" />
-          Scroll to explore
         </Reveal>
       </div>
     </header>

@@ -3,11 +3,9 @@ export default function Nav() {
     <nav className="absolute top-0 left-0 right-0 z-30">
       <div className="mx-auto max-w-[1280px] px-6 md:px-10 py-6 flex items-center justify-between">
         <a href="https://lunim.io" className="group">
-          <img
-            src="/logo.png"
-            alt="Lunim"
-            className="h-10 w-auto transition-opacity duration-300 group-hover:opacity-90"
-          />
+          <span className="font-display text-2xl font-bold tracking-tight text-text-primary transition-opacity duration-300 group-hover:opacity-90">
+            lunim
+          </span>
         </a>
 
         <div className="hidden md:flex items-center gap-8 text-sm text-text-secondary">

@@ -33,7 +33,7 @@ export default function CaseStudyGrid({ studies, allStudies }) {
   return (
     <section className="relative bg-bg-base">
       <div className="mx-auto max-w-[1280px] px-6 md:px-10 py-16 md:py-24">
-        <SectionIntro count={studies.length} />
+        <SectionIntro />
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6 mt-10 md:mt-14">
           {allStudies.map((study, i) => {
@@ -76,7 +76,7 @@ function GridItem({ colSpan, index, children, filteredOut }) {
   )
 }
 
-function SectionIntro({ count }) {
+function SectionIntro() {
   const [ref, visible] = useScrollReveal(0.2)
   return (
     <div
@@ -86,16 +86,12 @@ function SectionIntro({ count }) {
       <div>
         <p className="text-xs tracking-[0.24em] uppercase text-accent mb-4">
           <span className="inline-block h-px w-8 bg-accent align-middle mr-3" />
-          The Work
+          THE WORK
         </p>
         <h2 className="font-display font-bold text-text-primary text-3xl md:text-5xl tracking-tight leading-[1.05] max-w-3xl">
           Selected case studies, weighted by outcome.
         </h2>
       </div>
-      <p className="text-text-secondary text-sm md:text-base max-w-sm">
-        Six projects across UX, AI and Web3. Each card surfaces what shipped
-        and the measurable change.
-      </p>
     </div>
   )
 }

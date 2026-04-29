@@ -56,20 +56,9 @@ export default function CaseStudyCard({
           isFeatured ? 'md:min-h-[420px]' : isWide ? 'md:min-h-[300px]' : 'md:min-h-[300px]'
         }`}
       >
-        {/* Top row: client + category chip */}
-        <div className="flex items-center justify-between mb-6">
+        <div className="mb-6">
           <span className="text-xs tracking-[0.18em] uppercase text-text-muted">
-            {study.client}
-          </span>
-          <span
-            className="text-[10px] md:text-[11px] tracking-[0.16em] uppercase font-medium px-2.5 py-1 rounded-[3px]"
-            style={{
-              backgroundColor: hexToRgba(study.accent, 0.12),
-              color: hexToRgba(study.accent, 1),
-              border: `1px solid ${hexToRgba(study.accent, 0.3)}`,
-            }}
-          >
-            {study.category}
+            {study.eyebrow}
           </span>
         </div>
 
@@ -80,12 +69,6 @@ export default function CaseStudyCard({
           {study.headline}
         </h3>
 
-        {/* Hover-revealed challenge teaser */}
-        <p className="challenge-teaser text-sm md:text-[15px] text-text-secondary leading-relaxed">
-          {study.challenge}
-        </p>
-
-        {/* Spacer that pushes metric to bottom on featured/wide */}
         <div className="flex-1 min-h-[28px]" />
 
         {/* Metric */}

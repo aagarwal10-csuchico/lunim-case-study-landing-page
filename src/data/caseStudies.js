@@ -3,6 +3,7 @@ export const caseStudies = [
     id: 'pizza-hut',
     category: 'UX',
     client: 'Pizza Hut',
+    eyebrow: 'PIZZA HUT · UX',
     headline: 'Checkout Redesign',
     challenge:
       'Too many steps and friction points, especially for returning users. Poor mobile layouts led to drop-offs.',
@@ -19,6 +20,7 @@ export const caseStudies = [
     id: 'toucanbox',
     category: 'UX',
     client: 'ToucanBox',
+    eyebrow: 'TOUCANBOX · UX',
     headline: 'Redesigning Sign-Up for Busy Parents',
     challenge:
       'High-friction sign-up flow with poor mobile experience caused high abandonment among the core parent demographic.',
@@ -35,6 +37,7 @@ export const caseStudies = [
     id: 'ai-portfolio',
     category: 'AI',
     client: 'Portfolio Platform',
+    eyebrow: 'PORTFOLIO PLATFORM · AI',
     headline: 'AI Agent Portfolio Builder',
     challenge:
       'Manual profile creation caused high drop-off during onboarding. Incomplete data undermined the platform’s core value.',
@@ -51,6 +54,7 @@ export const caseStudies = [
     id: 'whatsapp-ai',
     category: 'AI',
     client: 'Independent Professionals',
+    eyebrow: 'INDEPENDENT PROFESSIONALS · AI',
     headline: 'AI WhatsApp Assistant',
     challenge:
       'Small businesses were losing leads due to slow manual responses and disorganised booking via WhatsApp.',
@@ -67,6 +71,7 @@ export const caseStudies = [
     id: 'community-dao',
     category: 'Web3',
     client: 'Community Grants',
+    eyebrow: 'COMMUNITY GRANTS · WEB3',
     headline: 'Winner-Takes-All DAO',
     challenge:
       'Communities lacked a transparent, trustless mechanism to run competitive funding rounds without central control.',
@@ -83,6 +88,7 @@ export const caseStudies = [
     id: 'stacks-nft',
     category: 'Web3',
     client: 'Stacks Network',
+    eyebrow: 'STACKS NETWORK · WEB3',
     headline: 'First Curated Multimedia NFT Collection',
     challenge:
       'Stacks lacked a flagship NFT collection to demonstrate the network’s creative and technical capabilities.',

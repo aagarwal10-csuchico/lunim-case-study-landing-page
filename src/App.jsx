@@ -18,7 +18,7 @@ export default function App() {
   return (
     <main className="bg-bg-base text-text-primary">
       <Hero />
-      <FilterBar active={filter} onChange={setFilter} total={filtered.length} />
+      <FilterBar active={filter} onChange={setFilter} />
       <CaseStudyGrid studies={filtered} allStudies={caseStudies} />
       <BeforeAfter />
       <ImpactMetrics />

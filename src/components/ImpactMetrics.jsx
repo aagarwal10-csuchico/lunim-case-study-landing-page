@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal.js'
 
 const metrics = [
-  { value: 28, suffix: '%', label: 'Faster checkout for returning Pizza Hut users' },
+  { value: 28, suffix: '%', label: 'Faster checkout for returning users · Pizza Hut' },
   { value: 93, suffix: '%', label: 'Task completion vs 68% originally' },
-  { value: 22, suffix: '%', label: 'Reduction in form abandonment, ToucanBox' },
-  { value: 10, suffix: 'hrs+', label: 'Hours saved per week with WhatsApp AI' },
+  { value: 22, suffix: '%', label: 'Reduction in form abandonment · ToucanBox' },
+  { value: 10, suffix: 'hrs+', label: 'Saved per week through automation · WhatsApp AI' },
 ]
 
 function easeOutCubic(t) {
@@ -60,10 +60,10 @@ export default function ImpactMetrics() {
           <div>
             <p className="text-xs tracking-[0.24em] uppercase text-accent mb-4">
               <span className="inline-block h-px w-8 bg-accent align-middle mr-3" />
-              Measured Impact
+              MEASURED IMPACT
             </p>
             <h2 className="font-display font-bold text-text-primary text-3xl md:text-5xl tracking-tight leading-[1.05] max-w-2xl">
-              Numbers from real shipped work.
+              Numbers from real engagements.
             </h2>
           </div>
         </div>

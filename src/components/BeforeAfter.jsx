@@ -63,20 +63,15 @@ export default function BeforeAfter() {
       <div className="mx-auto max-w-[1280px] px-6 md:px-10 py-16 md:py-24">
         <Reveal as="p" className="text-xs tracking-[0.24em] uppercase text-accent mb-4">
           <span className="inline-block h-px w-8 bg-accent align-middle mr-3" />
-          Before & After
+          BEFORE & AFTER
         </Reveal>
         <Reveal delay={100}>
           <h2 className="font-display font-bold text-text-primary text-3xl md:text-5xl tracking-tight leading-[1.05] max-w-3xl">
-            The same portfolio. Presented the way the work deserves.
+            The same portfolio.
+            <br />
+            Presented the way the work deserves.
           </h2>
         </Reveal>
-        <Reveal delay={200} className="mt-4 max-w-xl">
-          <p className="text-text-secondary text-sm md:text-base">
-            Drag the slider to compare the live site card with the redesigned
-            editorial card. Same data, different signal.
-          </p>
-        </Reveal>
-
         <Reveal delay={260} className="mt-10 md:mt-14">
           <div
             ref={containerRef}
@@ -88,7 +83,7 @@ export default function BeforeAfter() {
             {/* BEFORE (full width, sits underneath) */}
             <div className="absolute inset-0 flex items-center justify-center p-6 md:p-10 bg-bg-card">
               <BeforePanel study={featured} />
-              <PanelLabel side="right">Before</PanelLabel>
+              <PanelLabel side="right">BEFORE</PanelLabel>
             </div>
 
             {/* AFTER (full width, clipped from the right via clip-path so layout matches Before exactly) */}
@@ -97,8 +92,8 @@ export default function BeforeAfter() {
               style={{ clipPath: `inset(0 ${100 - pct}% 0 0)` }}
             >
               <AfterPanel study={featured} />
-              <PanelLabel side="left" tone="accent">
-                After
+              <PanelLabel side="left">
+                AFTER
               </PanelLabel>
             </div>
 
@@ -106,7 +101,8 @@ export default function BeforeAfter() {
             <div className="ba-handle" style={{ left: `${pct}%` }}>
               <button
                 type="button"
-                aria-label="Drag to compare before and after"
+                aria-label="Drag to compare"
+                title="Drag to compare"
                 className="ba-handle-grip"
                 onMouseDown={onPointerDown}
                 onTouchStart={onPointerDown}
@@ -118,11 +114,6 @@ export default function BeforeAfter() {
           </div>
         </Reveal>
 
-        <Reveal delay={320} className="mt-6 flex items-center gap-6 text-xs tracking-[0.16em] uppercase text-text-muted">
-          <span>← Drag</span>
-          <span>Compare</span>
-          <span>Drag →</span>
-        </Reveal>
       </div>
     </section>
   )
@@ -138,7 +129,7 @@ function PanelLabel({ children, side, tone = 'default', inline = false }) {
       className={`${positioning} text-[10px] tracking-[0.24em] uppercase font-medium px-2.5 py-1.5 rounded-[3px] border ${
         isAccent
           ? 'bg-accent text-bg-base border-accent'
-          : 'bg-bg-elevated text-text-secondary border-border'
+          : 'bg-white text-bg-base border-white'
       }`}
     >
       {children}

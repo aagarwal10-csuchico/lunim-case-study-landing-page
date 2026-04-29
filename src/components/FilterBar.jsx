@@ -1,6 +1,6 @@
 import { categories } from '../data/caseStudies.js'
 
-export default function FilterBar({ active, onChange, total }) {
+export default function FilterBar({ active, onChange }) {
   return (
     <div className="filter-bar sticky top-0 z-20">
       <div className="mx-auto max-w-[1280px] px-6 md:px-10">
@@ -30,7 +30,7 @@ export default function FilterBar({ active, onChange, total }) {
           </div>
 
           <span className="hidden md:inline-block text-xs tracking-[0.2em] uppercase text-text-muted">
-            {total} {total === 1 ? 'project' : 'projects'}
+            6 PROJECTS
           </span>
         </div>
       </div>
