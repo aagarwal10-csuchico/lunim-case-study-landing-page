@@ -2,55 +2,48 @@ import CaseStudyCard from './CaseStudyCard.jsx'
 import { useScrollReveal } from '../hooks/useScrollReveal.js'
 
 /**
- * Editorial layout pattern (12-col on desktop):
- * Pair index 0: 7 / 5 (featured wide on left)
- * Pair index 1: 5 / 7 (featured wide on right)
- * Pair index 2: 7 / 5 (alternates again)
- * On md and below this collapses to a single column.
+ * Editorial hierarchy:
+ *  - The first study renders as a full-width featured hero card.
+ *  - The remaining studies sit in a 2-column grid beneath it.
+ * This intentionally breaks a uniform grid so the lead piece carries
+ * more visual weight than the supporting work.
  */
-function getLayoutFor(index) {
-  const pair = Math.floor(index / 2)
-  const isLeft = index % 2 === 0
-  const isWidePair = pair % 2 === 0
-
-  if (isLeft) {
-    return {
-      colSpan: isWidePair ? 'md:col-span-7' : 'md:col-span-5',
-      variant: pair === 0 ? 'featured' : isWidePair ? 'wide' : 'default',
-    }
-  }
-  return {
-    colSpan: isWidePair ? 'md:col-span-5' : 'md:col-span-7',
-    variant: !isWidePair ? 'wide' : 'default',
-  }
-}
-
 export default function CaseStudyGrid({ studies, allStudies }) {
   const visibleIds = new Set(studies.map((s) => s.id))
+  const [featured, ...rest] = allStudies
 
-  // Always render all studies in a stable order so opacity transitions
-  // smoothly when filtering. Layout positions are based on the full set.
+  if (!featured) return null
+
   return (
     <section className="relative bg-bg-base">
       <div className="mx-auto max-w-[1280px] px-6 md:px-10 py-16 md:py-24">
         <SectionIntro />
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6 mt-10 md:mt-14">
-          {allStudies.map((study, i) => {
-            const { colSpan, variant } = getLayoutFor(i)
+        <div className="mt-10 md:mt-14">
+          <GridItem index={0} filteredOut={!visibleIds.has(featured.id)}>
+            <CaseStudyCard
+              study={featured}
+              variant="featured"
+              filteredOut={!visibleIds.has(featured.id)}
+              delay={0}
+            />
+          </GridItem>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mt-5 md:mt-6">
+          {rest.map((study, i) => {
             const filteredOut = !visibleIds.has(study.id)
             return (
               <GridItem
                 key={study.id}
-                colSpan={colSpan}
-                index={i}
+                index={i + 1}
                 filteredOut={filteredOut}
               >
                 <CaseStudyCard
                   study={study}
-                  variant={variant}
+                  variant="default"
                   filteredOut={filteredOut}
-                  delay={(i % 3) * 80}
+                  delay={(i % 2) * 80}
                 />
               </GridItem>
             )
@@ -61,12 +54,12 @@ export default function CaseStudyGrid({ studies, allStudies }) {
   )
 }
 
-function GridItem({ colSpan, index, children, filteredOut }) {
+function GridItem({ index, children, filteredOut }) {
   const [ref, visible] = useScrollReveal(0.1)
   return (
     <div
       ref={ref}
-      className={`reveal ${visible ? 'is-visible' : ''} col-span-1 ${colSpan} ${
+      className={`reveal ${visible ? 'is-visible' : ''} ${
         filteredOut ? 'md:opacity-30' : ''
       }`}
       style={{ transitionDelay: `${(index % 3) * 90}ms` }}
