@@ -1,7 +1,17 @@
+import { useEffect, useState } from 'react'
 import Nav from './Nav.jsx'
 import Reveal from './Reveal.jsx'
 
 export default function Hero() {
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
     <header className="relative min-h-screen overflow-hidden grain bg-bg-base">
       <Nav />
@@ -66,6 +76,21 @@ export default function Hero() {
           </p>
         </Reveal>
       </div>
+
+      <a
+        href="#case-studies"
+        aria-label="Scroll to case studies"
+        className={`scroll-cue absolute z-10 left-6 md:left-10 bottom-8 md:bottom-12 flex flex-col items-start gap-4 group ${
+          scrolled ? 'is-hidden' : ''
+        }`}
+      >
+        <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-text-muted group-hover:text-text-secondary transition-colors">
+          Scroll
+        </span>
+        <span aria-hidden className="relative block h-14 w-px bg-border overflow-hidden">
+          <span className="scroll-cue-dot absolute left-0 top-0 block w-px h-4 bg-accent" />
+        </span>
+      </a>
     </header>
   )
 }

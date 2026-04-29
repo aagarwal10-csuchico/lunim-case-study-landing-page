@@ -198,3 +198,55 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Smooth anchor scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hero scroll cue */
+.scroll-cue {
+  opacity: 1;
+  transition:
+    opacity 360ms ease,
+    transform 360ms ease;
+}
+
+.scroll-cue.is-hidden {
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+}
+
+@keyframes scrollCueDot {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(360%);
+    opacity: 0;
+  }
+}
+
+.scroll-cue-dot {
+  animation: scrollCueDot 2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .scroll-cue-dot {
+    animation: none;
+    transform: translateY(0);
+    height: 100%;
+    opacity: 0.6;
+  }
+}

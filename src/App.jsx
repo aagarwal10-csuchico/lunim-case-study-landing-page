@@ -18,8 +18,10 @@ export default function App() {
   return (
     <main className="bg-bg-base text-text-primary">
       <Hero />
-      <FilterBar active={filter} onChange={setFilter} />
-      <CaseStudyGrid studies={filtered} allStudies={caseStudies} />
+      <div id="case-studies">
+        <FilterBar active={filter} onChange={setFilter} />
+        <CaseStudyGrid studies={filtered} allStudies={caseStudies} />
+      </div>
       <BeforeAfter />
       <ImpactMetrics />
       <Outro />
