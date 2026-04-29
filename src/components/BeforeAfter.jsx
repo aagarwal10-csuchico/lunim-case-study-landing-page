@@ -82,7 +82,7 @@ export default function BeforeAfter() {
           >
             {/* BEFORE (full width, sits underneath) */}
             <div className="absolute inset-0 flex items-center justify-center p-6 md:p-10 bg-bg-card">
-              <BeforePanel study={featured} />
+              <BeforePanel />
               <PanelLabel side="right">BEFORE</PanelLabel>
             </div>
 
@@ -137,29 +137,16 @@ function PanelLabel({ children, side, tone = 'default', inline = false }) {
   )
 }
 
-/* Faithful recreation of the current Lunim card layout */
-function BeforePanel({ study }) {
+/* Snapshot of the current Lunim card */
+function BeforePanel() {
   return (
     <div className="w-full max-w-[440px]">
-      <div className="bg-bg-card border border-border rounded-[4px] p-6">
-        <p className="text-[10px] tracking-[0.18em] uppercase text-text-muted mb-3">
-          {study.category}
-        </p>
-        <h3 className="text-text-primary text-xl font-medium leading-snug mb-3">
-          {study.client} — {study.headline}
-        </h3>
-        <p className="text-text-secondary text-sm leading-relaxed mb-5">
-          A short project description with no measurable outcome surfaced and
-          no visual differentiation between projects.
-        </p>
-        <a
-          href={study.url}
-          onClick={(e) => e.preventDefault()}
-          className="text-accent text-sm"
-        >
-          More →
-        </a>
-      </div>
+      <img
+        src="/image.png"
+        alt="Current Lunim case study card"
+        className="w-full h-auto rounded-2xl border border-border shadow-lg"
+        draggable={false}
+      />
     </div>
   )
 }
